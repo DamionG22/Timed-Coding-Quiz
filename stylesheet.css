@@ -1,0 +1,38 @@
+
+
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: aqua;
+    font-size: 45px;
+    background-color: black;
+    padding: 59px;
+    text-decoration: underline lime;
+
+}
+.body {
+    background-color: goldenrod;
+
+
+}
+
+
+.start {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 40px;
+    padding-top: 5%;
+
+}
+#startButton {
+    display: flex;
+    position: absolute;
+    left: 45%;
+    top: 50%;
+    
+    
+    
+
+}
