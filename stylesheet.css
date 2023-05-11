@@ -4,17 +4,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    color: aqua;
+    color: rebeccapurple;
     font-size: 45px;
     background-color: black;
     padding: 59px;
-    text-decoration: underline lime;
+    text-decoration: underline gold;
+   
 
 }
 .body {
-    background-color: goldenrod;
-
-
+   background-color:goldenrod;
+    
 }
 
 
@@ -35,4 +35,33 @@
     
     
 
+}
+.questions {
+    display: flex;
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    
+}
+
+.answers {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+    left: 45%;
+    top: 60%;
+    
+}
+
+#next {
+    display: none;
+    top: 70%;
+}
+#timer {
+    display: none;
+}
+footer {
+    position: absolute;
+    bottom: 2%;
+    left: 42%;
 }
