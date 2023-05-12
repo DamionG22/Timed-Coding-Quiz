@@ -1,6 +1,6 @@
 # Timed-Coding-Quiz
 This is a timed coding quiz that tracks high scores.
-This quiz can be reached by visiting the URL:
+This quiz can be reached by visiting the URL: https://damiong22.github.io/Timed-Coding-Quiz/
 This quiz was created using HTML, CSS stylesheets, and JavaScript.
 The quiz will begin when you click the "Lets Code" button.
 Upon starting the quiz a 60 second countdown timer will start.
