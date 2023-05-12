@@ -1,29 +1,30 @@
 var startButton = document.getElementById("startButton");
 var questionText = document.getElementById("question-text");
-var answerText1 = document.getElementById("answer-text1")
-var answerText2 = document.getElementById("answer-text2")
-var answerText3 = document.getElementById("answer-text3")
-var answerText4 = document.getElementById("answer-text4")
+var answerText1 = document.getElementById("answer-text1");
+var answerText2 = document.getElementById("answer-text2");
+var answerText3 = document.getElementById("answer-text3");
+var answerText4 = document.getElementById("answer-text4");
 var nextButton = document.getElementById("next");
 var showTimer = document.getElementById("timer");
-// startButton.addEventListener("click", function() {
+var headerStart = document.getElementById("start-screen-text");
+var startText = document.getElementById("start-text");
+var gameOver = document.getElementById("game-over");
+var scoreText = document.getElementById("score-text");
+var inGameText = document.getElementById("game-text");
+var timerText = document.getElementById("timer-text");
+var showScore = document.getElementById("show-score");
 
-    
-// })
 
 var questions = document.getElementsByClassName("questions");
 var answers = document.getElementsByClassName("answers")
 
 var scoreCounter = 0
 // sets timer to start at 10 seconds
-var seconds = 10;
+var seconds = 60;
 
 var intervalId 
 
-// function clearInterval {
-//     clearInterval
 
-// }
 // Timer
 function countdown() {
     
@@ -39,17 +40,31 @@ function countdown() {
     // stops the timer at 0
     if (seconds === 0) {
       clearInterval(intervalId);
+      questionText.style.display = "none";
+      answerText1.style.display = "none";
+      answerText2.style.display = "none";
+      answerText3.style.display = "none";
+      answerText4.style.display = "none";
+      nextButton.style.display = "none";
+      gameOver.style.display = "block";
+      headerStart.style.display = "none";
+      scoreText.style.display = "block";
+      showTimer.style.display = "none";
+      inGameText.style.display = "none";
+      timerText.style.display = "none";
+      showScore.style.display = "none";
+
     }
    
 }
 function init() {
     scoreTracker();
-    seconds = 10 
+    seconds = 60 
 
 }
 
 var currentQuestion = 0;
-
+// houses all questions,choices and correct answers
 var allQuestions = [
     {
         question: "Which HTML element do we put javascript in?",
@@ -68,37 +83,14 @@ var allQuestions = [
     }
 ]
 
-// // sets timer to start at 10 seconds
-// var seconds = 10;
 
-// var intervalId; 
-
-
-
-
-// // Timer
-// function countdown() {
-    
-
-//   // updates the seconds value
-//   seconds--;
-
-//   // displays the updated seconds value
-//   console.log(seconds);
-
-//   showTimer.textContent = seconds;
-
-//   // stops the timer at 0
-//   if (seconds > 0) {
-//     clearInterval(intervalId);
-//   }
- 
-// }
-// var intervalId = setInterval(countdown, 1000);
 
 startButton.addEventListener("click", function() {
+    startText.style.display = "none"
     startButton.style.display = "none";
     nextButton.style.display = "block";
+    headerStart.style.display = "none";
+    inGameText.style.display = "block"
     displayQuestion();
     showTimer.style.display = "block";
     intervalId = setInterval (countdown, 1000)
@@ -109,7 +101,7 @@ answerText1.addEventListener("click", function() {
     nextButton.style.display = "block";
     displayQuestion();
     showTimer.style.display = "block";
-    intervalId = setInterval (countdown, 1000);
+   
 });
 
 answerText2.addEventListener("click", function() {
@@ -118,7 +110,7 @@ answerText2.addEventListener("click", function() {
     nextButton.style.display = "block";
     displayQuestion();
     showTimer.style.display = "block";
-    intervalId = setInterval (countdown, 1000);
+    
 });
 
 answerText3.addEventListener("click", function() {
@@ -126,7 +118,7 @@ answerText3.addEventListener("click", function() {
   nextButton.style.display = "block";
   displayQuestion();
   showTimer.style.display = "block";
-  intervalId = setInterval (countdown, 1000);
+
  
 });
 
@@ -135,7 +127,7 @@ answerText4.addEventListener("click", function() {
     nextButton.style.display = "block";
     displayQuestion();
     showTimer.style.display = "block";
-    intervalId = setInterval (countdown, 1000);
+    
 });
 
 function displayQuestion(){ 
@@ -156,6 +148,18 @@ function displayQuestion(){
     } else {
         // when user finished all the questions
         questionText.textContent = 'Scores'
+        nextButton.style.display = "none"
+        answerText1.style.display = "none"
+        answerText2.style.display = "none"
+        answerText3.style.display = "none"
+        answerText4.style.display = "none"
+        showTimer.style.display = "none"
+        timerText.style.display = "none"
+        seconds.style.display = "none"
+        inGameText.style.display = "none"
+        gameOver.style.display = "block"
+        showScore.style.display = "block"
+        
     }
 }
 

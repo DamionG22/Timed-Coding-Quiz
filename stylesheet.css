@@ -24,6 +24,7 @@
     align-items: center;
     font-size: 40px;
     padding-top: 5%;
+    
 
 }
 #startButton {
@@ -36,6 +37,13 @@
     
 
 }
+/* Hides these IDs when webpage is launched */
+#score-text, #game-over, #show-score, #game-text {
+    display: none;
+
+
+}
+/* positions the questions class */
 .questions {
     display: flex;
     position: absolute;
@@ -43,13 +51,14 @@
     top: 50%;
     
 }
-
+/* positions the answers class */
 .answers {
     display: flex;
     position: absolute;
     flex-direction: column;
     left: 45%;
     top: 60%;
+   
     
 }
 
@@ -57,8 +66,29 @@
     display: none;
     top: 70%;
 }
+/* positions and custimizes timer text */
+#timer-text {
+    display: flex ;
+    position: fixed;
+    flex-direction: column;
+    right: 42%;
+    top: 30%;
+    font-size: x-large;
+    color: blueviolet;
+
+
+
+}
+/* positions and customizes the timer  */
 #timer {
-    display: none;
+    display: flex ;
+    position: fixed;
+    flex-direction: column;
+    right: 36%;
+    top: 30%;
+    font-size: x-large;
+    color: blueviolet;
+
 }
 footer {
     position: absolute;
