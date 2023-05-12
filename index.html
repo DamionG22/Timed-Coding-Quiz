@@ -8,8 +8,9 @@
   <link rel="stylesheet" href="./reset.css" />
   <link rel="stylesheet" href="./stylesheet.css" />
 </head>
-
+<!-- Top of webpage container -->
 <header class="header">
+  <!-- Changing header text depending on JavaScript triggers -->
     <h1 id="start-screen-text">Test Your Coding Knowledge!</h1>
     <h2 id="game-over"> <strong> GAME OVER!!</strong></h2>
     <h3 id="game-text"><strong>Keep an eye on your time!</strong></h3>
@@ -19,15 +20,22 @@
     <h1  id="start-text">Are you ready? </h1>
     <h2 id="score-text"><strong>Your Score!</strong></h2>
   </div>
+  <!-- start button -->
     <button id="startButton">Lets Code!</button>
+    <!-- container for questions -->
     <div class="questions">
-      <time id="timer">60</time>
+      <!-- Holds the timer -->
+      <time id="timer">35</time>
+      <!-- Text next to timer -->
       <h1 id="timer-text"><strong>TIME REMAINING:</strong></h1>
+      <!-- The actual question -->
       <p id="question-text"></p>
     </div>
+    <!-- container for all answers  -->
     <div class="answers">
     
       <button id="next">Next</button>
+      <!-- answer buttons updated through JAvaScript -->
       <button id="answer-text1"></button>
       <button id="answer-text2"></button>
       <button id="answer-text3"></button>

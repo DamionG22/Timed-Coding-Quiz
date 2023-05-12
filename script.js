@@ -1,3 +1,4 @@
+// converts ID's and classes into variables to use in JavaScript
 var startButton = document.getElementById("startButton");
 var questionText = document.getElementById("question-text");
 var answerText1 = document.getElementById("answer-text1");
@@ -13,14 +14,12 @@ var scoreText = document.getElementById("score-text");
 var inGameText = document.getElementById("game-text");
 var timerText = document.getElementById("timer-text");
 var showScore = document.getElementById("show-score");
-
-
 var questions = document.getElementsByClassName("questions");
 var answers = document.getElementsByClassName("answers")
 
 var scoreCounter = 0
 // sets timer to start at 10 seconds
-var seconds = 60;
+var seconds = 35;
 
 var intervalId 
 
@@ -59,7 +58,7 @@ function countdown() {
 }
 function init() {
     scoreTracker();
-    seconds = 60 
+    seconds = 35 
 
 }
 
@@ -73,18 +72,27 @@ var allQuestions = [
     },
     {
         question:"Can Javascript only be used with an external page?",
-        choices: ["yes","No","what's javascript?", "I don't know!?!?"],
-        answerIndex: 1
+        choices: ["No","Yes","what's javascript?", "I don't know!?!?"],
+        answerIndex: 0
     },
     {
         question: "Javascript can create HMTL elements?",
         choices: ["Yes", "No","What's HTML?","I don't know!?!?"],
         answerIndex: 0 
+    },
+    {   question:" Are JavaScript and Java  the same thing?",
+        choices: ["No", "Yes","What's Javascript?","isn't java coffee?"],
+        answerIndex:0
+
     }
 ]
+// detects clicks for answer buttons and verifys if answer is correct
+answerText1.addEventListener("click", correctAnswer)
+answerText2.addEventListener("click", incorrectAnswer)
+answerText3.addEventListener("click", incorrectAnswer)
+answerText4.addEventListener("click", incorrectAnswer)
 
-
-
+// triggers quiz to start
 startButton.addEventListener("click", function() {
     startText.style.display = "none"
     startButton.style.display = "none";
@@ -96,39 +104,9 @@ startButton.addEventListener("click", function() {
     intervalId = setInterval (countdown, 1000)
     
 });
-answerText1.addEventListener("click", function() {
-    startButton.style.display = "none";
-    nextButton.style.display = "block";
-    displayQuestion();
-    showTimer.style.display = "block";
-   
-});
 
-answerText2.addEventListener("click", function() {
 
-    startButton.style.display = "none";
-    nextButton.style.display = "block";
-    displayQuestion();
-    showTimer.style.display = "block";
-    
-});
 
-answerText3.addEventListener("click", function() {
-   startButton.style.display = "none";
-  nextButton.style.display = "block";
-  displayQuestion();
-  showTimer.style.display = "block";
-
- 
-});
-
-answerText4.addEventListener("click", function() {
-    startButton.style.display = "none";
-    nextButton.style.display = "block";
-    displayQuestion();
-    showTimer.style.display = "block";
-    
-});
 
 function displayQuestion(){ 
     if(currentQuestion <= allQuestions.length - 1){
@@ -146,21 +124,32 @@ function displayQuestion(){
         // move to next question
         currentQuestion++
     } else {
-        // when user finished all the questions
-        questionText.textContent = 'Scores'
-        nextButton.style.display = "none"
-        answerText1.style.display = "none"
-        answerText2.style.display = "none"
-        answerText3.style.display = "none"
-        answerText4.style.display = "none"
-        showTimer.style.display = "none"
-        timerText.style.display = "none"
-        seconds.style.display = "none"
-        inGameText.style.display = "none"
-        gameOver.style.display = "block"
-        showScore.style.display = "block"
-        
+    // Takes user to game end screen (same as timer running out)
+        clearInterval(intervalId);
+        questionText.style.display = "none";
+        answerText1.style.display = "none";
+        answerText2.style.display = "none";
+        answerText3.style.display = "none";
+        answerText4.style.display = "none";
+        nextButton.style.display = "none";
+        gameOver.style.display = "block";
+        headerStart.style.display = "none";
+        scoreText.style.display = "block";
+        showTimer.style.display = "none";
+        inGameText.style.display = "none";
+        timerText.style.display = "none";
+        showScore.style.display = "none";
     }
+}
+
+function incorrectAnswer() {
+    alert("INCORRECT! You lose 5 seconds!");
+    seconds -= 5;
+    displayQuestion();
+}
+function correctAnswer() {
+    alert("Great Job! Thats correct")
+    displayQuestion();
 }
 
 function displayHighScores() {
@@ -168,11 +157,7 @@ function displayHighScores() {
 }
 
 nextButton.addEventListener("click", function() {
-    // TODO: check the answer here
-    //  if (choices === answerIndex)
 
-
-    // after answer is checked and accounted for run displayQuestion
     displayQuestion()
     
 })
